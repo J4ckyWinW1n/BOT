@@ -1,4 +1,5 @@
-﻿import vk_api
+# -*- coding: utf-8 -*-
+import vk_api
 from vk_api.longpoll import VkLongPoll, VkEventType
 import random
 from vk_api import VkUpload
