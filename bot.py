@@ -12,16 +12,10 @@ import datetime, time
 
 def main():
     session = requests.Session()
-    login, password = '89520089626', 'Urfreedomisalieqwerty1234'
-    vk_session = vk_api.VkApi(login, password)
+    vk_session = vk_api.VkApi(token = '48acd0aee73b462269bef41ce2430084f00bad5c2969bf52ebbdeccdc0b03a25aaf789dc6123fe5a6e79e')# Авторизироваться как сообщество
 
     attachments =[]
 
-    try:
-        vk_session.auth(token_only=True)
-    except vk_api.AuthError as error_msg:
-        print(error_msg)
-        return
 
     longpoll = VkLongPoll(vk_session)
     vk = vk_session.get_api()
@@ -37,7 +31,7 @@ def main():
 
         if '22:54' == str(now):
             upload = VkUpload(vk_session)
-            VALAKAS = ['https://pp.userapi.com/c847016/v847016524/2f9ff/TJEE25JMXTA.jpg']
+            #VALAKAS = ['https://pp.userapi.com/c847016/v847016524/2f9ff/TJEE25JMXTA.jpg']
             image_url = random.choice(VALAKAS)
             image = session.get(image_url, stream=True)
             photo = upload.photo_messages(photos=image.raw)[0]
